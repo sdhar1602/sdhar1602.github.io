@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Research | Soumyadeep Dhar</title>
+  <meta name="description" content="Research by Soumyadeep Dhar: long-term hourly electricity demand forecasting (Applied Energy), genetic-programming symbolic distillation (GECCO 2026), and generative AI in supply chains.">
+  <meta name="author" content="Soumyadeep Dhar">
+  <link rel="canonical" href="https://sdhar1602.github.io/research.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#F5F1E8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#12110F" media="(prefers-color-scheme: dark)">
+  <script>
+    (function () {
+      var d = document.documentElement, t = null;
+      d.classList.add('js');
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      d.setAttribute('data-theme', t);
+      setTimeout(function () { if (!window.__revealReady) d.classList.add('reveal-fallback'); }, 2500);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/img/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Research | Soumyadeep Dhar">
+  <meta property="og:description" content="Energy, electricity markets, demand forecasting and interpretable AI.">
+  <meta property="og:image" content="https://sdhar1602.github.io/assets/img/og-card.jpg">
+  <meta property="og:url" content="https://sdhar1602.github.io/research.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Soumyadeep Dhar, home">
+        <img class="brand-logo" src="assets/img/stanford-s.webp" width="200" height="295" alt="">
+        <span class="brand-name">Soumyadeep Dhar</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html"><span class="nav-idx">01</span>About</a>
+        <a href="research.html" aria-current="page"><span class="nav-idx">02</span>Research</a>
+        <a href="resume.html"><span class="nav-idx">03</span>Resume</a>
+        <a href="hobbies.html"><span class="nav-idx">04</span>Hobbies</a>
+      </nav>
+      <button class="theme-switch" type="button" role="switch" aria-checked="false" aria-label="Dark mode" data-theme-toggle>
+        <svg class="ts-icon ts-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+        <svg class="ts-icon ts-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+        <span class="ts-thumb" aria-hidden="true">
+          <svg class="ts-thumb-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+          <svg class="ts-thumb-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-head container" aria-labelledby="page-title">
+      <p class="eyebrow eyebrow--accent reveal">02 · Research</p>
+      <h1 id="page-title" class="display-2 reveal" style="--d:.06s">Research<span class="dot">.</span></h1>
+      <p class="lead reveal" style="--d:.12s">I study energy systems, from electricity markets and demand forecasting to sustainability, alongside interpretable AI with an emphasis on distillation. More broadly, I build data-driven models to understand complex systems and inform decision-making.</p>
+    </section>
+
+    <!-- Themes -------------------------------------------------------------->
+    <section class="container" aria-labelledby="themes-title">
+      <h2 id="themes-title" class="visually-hidden">Research themes</h2>
+      <div class="themes">
+        <article class="theme reveal">
+          <div class="theme-top">
+            <span class="theme-num">01</span>
+            <svg class="theme-glyph" viewBox="0 0 84 52" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <path d="M2 50h80" stroke-opacity=".35" stroke-dasharray="2 4"/>
+              <path d="M2 36c6 2 10 6 18 5s10-16 18-18 10 1 16-3 8-13 14-12 8 11 14 14"/>
+              <circle cx="68" cy="8" r="2.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Energy &amp; electricity markets</h3>
+            <p>Electricity markets, demand forecasting and sustainability, including a methodology for long-term hourly demand forecasting driven by GDP and invariant load profiles.</p>
+          </div>
+        </article>
+        <article class="theme reveal" style="--d:.08s">
+          <div class="theme-top">
+            <span class="theme-num">02</span>
+            <svg class="theme-glyph" viewBox="0 0 84 52" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <path d="M42 8 24 26M42 8l18 18M24 26l-10 18M24 26l10 18M60 26l10 18"/>
+              <circle cx="42" cy="8" r="4.5" style="fill: var(--bg)"/>
+              <circle cx="24" cy="26" r="4.5" style="fill: var(--bg)"/>
+              <circle cx="60" cy="26" r="4.5" style="fill: var(--bg)"/>
+              <circle cx="14" cy="44" r="4" fill="currentColor" stroke="none"/>
+              <circle cx="34" cy="44" r="4" fill="currentColor" stroke="none"/>
+              <circle cx="70" cy="44" r="4" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Interpretable AI</h3>
+            <p>Interpretability with an emphasis on distillation: using genetic programming to distil trained models into compact, human-readable symbolic expressions.</p>
+          </div>
+        </article>
+        <article class="theme reveal" style="--d:.16s">
+          <div class="theme-top">
+            <span class="theme-num">03</span>
+            <svg class="theme-glyph" viewBox="0 0 84 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true">
+              <path d="M8 14 42 8M8 14l34 18M8 40l34-8M8 40l34 6M42 8l34 18M42 32l34-6M42 46l34-20" stroke-opacity=".7"/>
+              <circle cx="8" cy="14" r="4" style="fill: var(--bg)"/>
+              <circle cx="8" cy="40" r="4" style="fill: var(--bg)"/>
+              <circle cx="42" cy="8" r="4" style="fill: var(--bg)"/>
+              <circle cx="42" cy="32" r="4" style="fill: var(--bg)"/>
+              <circle cx="42" cy="46" r="4" style="fill: var(--bg)"/>
+              <circle cx="76" cy="26" r="5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Data-driven decisions</h3>
+            <p>Data-driven modeling of complex systems to inform decision-making, from energy systems to how generative AI reshapes collaboration in supply chain management.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Publications --------------------------------------------------------->
+    <section class="pubs container" aria-label="Publications and service">
+      <div class="pub-group reveal">
+        <div class="pub-group-head">
+          <h2>Journal papers</h2>
+          <span class="pub-count">01</span>
+        </div>
+        <article class="pub">
+          <span class="pub-index">J1</span>
+          <div>
+            <h3 class="pub-title"><a href="https://doi.org/10.1016/j.apenergy.2026.128981" target="_blank" rel="noopener noreferrer">A Methodology for Long-Term Hourly Electricity Demand Forecasting Driven by GDP and Invariant Load Profiles</a></h3>
+            <p class="pub-authors"><span class="me">S. Dhar</span>, A. Parmar, H. Qiu, J. Senga, S. Viswanathan</p>
+            <p class="pub-venue"><span class="tag tag--published">Published</span><span class="venue">Applied Energy</span><span>2026</span></p>
+            <ul class="metrics" aria-label="Journal metrics">
+              <li class="metric metric--rank" title="Top quartile of its Clarivate Journal Citation Reports category">Q1</li>
+              <li class="metric" title="Journal Impact Factor, Clarivate Journal Citation Reports">Impact Factor <span class="metric-v">12.2</span></li>
+              <li class="metric" title="CiteScore 2025, Scopus">CiteScore <span class="metric-v">22.1</span></li>
+            </ul>
+          </div>
+          <div class="pub-links">
+            <a class="btn btn--sm" href="https://doi.org/10.1016/j.apenergy.2026.128981" target="_blank" rel="noopener noreferrer">ScienceDirect
+              <svg class="go-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="pub-group reveal">
+        <div class="pub-group-head">
+          <h2>Conference papers</h2>
+          <span class="pub-count">01</span>
+        </div>
+        <article class="pub">
+          <span class="pub-index">C1</span>
+          <div>
+            <h3 class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3795095.3805148" target="_blank" rel="noopener noreferrer">Teaching the Teacher: The Role of Teacher-Student Smoothness Alignment in Genetic Programming-based Symbolic Distillation</a></h3>
+            <p class="pub-authors"><span class="me">S. Dhar</span>, K. S. Fong, M. Motani</p>
+            <p class="pub-venue"><span class="tag tag--published">Published</span><span class="venue">GECCO 2026</span><span>Genetic and Evolutionary Computation Conference</span></p>
+            <ul class="metrics" aria-label="Conference ranking">
+              <li class="metric metric--rank" title="Rank A in the ICORE 2026 conference ranking (formerly CORE)">CORE A</li>
+            </ul>
+          </div>
+          <div class="pub-links">
+            <a class="btn btn--sm" href="https://dl.acm.org/doi/10.1145/3795095.3805148" target="_blank" rel="noopener noreferrer">ACM Digital Library
+              <svg class="go-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="pub-group reveal">
+        <div class="pub-group-head">
+          <h2>Working papers</h2>
+          <span class="pub-count">01</span>
+        </div>
+        <article class="pub">
+          <span class="pub-index">W1</span>
+          <div>
+            <h3 class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5392021" target="_blank" rel="noopener noreferrer">The Collaboration Paradox: Why Generative AI Requires Both Strategic Intelligence and Operational Stability in Supply Chain Management</a></h3>
+            <p class="pub-authors"><span class="me">S. Dhar</span></p>
+            <p class="pub-venue"><span class="tag tag--working">Working paper</span><span class="venue">SSRN</span></p>
+          </div>
+          <div class="pub-links">
+            <a class="btn btn--sm" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5392021" target="_blank" rel="noopener noreferrer">SSRN
+              <svg class="go-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <div class="pub-group reveal">
+        <div class="pub-group-head">
+          <h2>Service</h2>
+          <span class="pub-count">Reviewing</span>
+        </div>
+        <article class="pub">
+          <span class="pub-index">S1</span>
+          <div>
+            <h3 class="pub-title">IET Renewable Power Generation</h3>
+            <p class="pub-authors">Wiley</p>
+            <p class="pub-venue"><span class="tag tag--service">Reviewer</span><span>Focus areas: electricity demand forecasting, renewable energy</span></p>
+          </div>
+        </article>
+      </div>
+
+      <p class="metrics-note reveal">Venue metrics as of November 2026: Impact Factor and quartile from Clarivate Journal Citation Reports, CiteScore 2025 from Scopus, and conference rank from the ICORE 2026 ranking (formerly CORE).</p>
+
+      <div class="scholar-cta reveal">
+        <p>Citations and the latest list live on <em>Google Scholar</em>.</p>
+        <a class="btn btn--solid" href="https://scholar.google.com/citations?hl=en&amp;user=NJCwsWkAAAAJ" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          Open Google Scholar
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cta reveal">
+        <p class="eyebrow">Open to collaboration</p>
+        <a class="footer-big" href="mailto:sdhar16@stanford.edu">Let’s exchange <em>ideas</em>&nbsp;<span class="arr" aria-hidden="true">→</span></a>
+        <div class="footer-email">
+          <span>sdhar16@stanford.edu</span>
+          <button class="copy-btn" type="button" data-copy="sdhar16@stanford.edu">
+            <svg class="ico-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/></svg>
+            <span data-copy-label aria-live="polite">Copy</span><span class="visually-hidden"> email address</span>
+          </button>
+        </div>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-logos">
+          <span class="logo-mask logo-s" role="img" aria-label="Stanford University"></span>
+          <span class="logo-mask logo-gsb" role="img" aria-label="Stanford Graduate School of Business"></span>
+        </div>
+        <ul class="footer-links">
+          <li><a href="https://www.linkedin.com/in/sd1602" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://scholar.google.com/citations?hl=en&amp;user=NJCwsWkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+          <li><a href="https://maps.app.goo.gl/v6GxR1A7szo6nVZg6" target="_blank" rel="noopener noreferrer">Google Maps</a></li>
+          <li><a href="assets/docs/Soumyadeep_Dhar_Resume.pdf">Resume (PDF)</a></li>
+        </ul>
+        <div class="footer-meta">
+          <span>Stanford, CA · <time data-clock>--:--</time> PT</span>
+          <span>© <span data-year>2026</span> Soumyadeep Dhar</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
