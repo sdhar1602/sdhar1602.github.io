@@ -29,6 +29,8 @@ assets/
   img/               web-optimised photos (WebP), logos, favicon, social preview card
   video/             re-encoded live clips (H.264, fast-start)
   docs/              Soumyadeep_Dhar_Resume.pdf
+sitemap.xml          the page list for search engines (add any new page here)
+robots.txt           lets all crawlers in and points them to the sitemap
 ```
 
 ## Preview locally
