@@ -600,6 +600,10 @@ html:not(.js) .theme-switch { visibility: hidden; }
   text-transform: uppercase;
   color: var(--muted);
 }
+/* second row: wide, shallow arches, like the broad arcades of the Main Quad */
+.arcade--wide { margin-top: clamp(22px, 3vw, 38px); }
+.arcade--wide .arch { aspect-ratio: 3 / 2; }
+.arch--wide { border-radius: 50% 50% 6px 6px / 30% 30% 6px 6px; }
 
 .place {
   display: grid;
@@ -1216,22 +1220,9 @@ html:not(.js) .theme-switch { visibility: hidden; }
 }
 
 /* ---------------------------------------------------------------- Resume -- */
-.resume-layout {
-  display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  align-items: start;
-  gap: clamp(32px, 5vw, 72px);
-  padding-bottom: clamp(64px, 9vw, 120px);
-}
-.resume-aside { position: sticky; top: calc(var(--header-h) + 28px); }
-.facts { margin: 0; }
-.facts > div { padding: 18px 0; border-top: 1px solid var(--line); }
-.facts > div:first-child { border-top-color: var(--ink); }
-.facts dt { margin-bottom: 6px; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
-.facts dd { margin: 0; font-size: .95rem; line-height: 1.5; color: var(--ink); }
-.facts dd small { display: block; margin-top: 2px; font-size: .86rem; color: var(--muted); }
+.resume-layout { padding-bottom: clamp(64px, 9vw, 120px); }
 
-.resume-viewer { display: grid; gap: clamp(22px, 3vw, 40px); min-width: 0; }
+.resume-viewer { display: grid; gap: clamp(22px, 3vw, 40px); max-width: 880px; min-width: 0; margin-inline: auto; }
 .sheet-wrap { margin: 0; }
 .sheet {
   position: relative;
@@ -1685,10 +1676,6 @@ html:not(.js) .theme-switch { visibility: hidden; }
   .themes { grid-template-columns: 1fr; gap: 0; }
   .theme { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 4px 28px; padding-block: 24px; }
   .theme-top { grid-row: span 2; flex-direction: column; gap: 14px; margin: 0; }
-  .resume-layout { grid-template-columns: 1fr; }
-  .resume-aside { position: static; }
-  .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
-  .facts > div:nth-child(2) { border-top-color: var(--ink); }
   .stage-grid, .pitch-grid { grid-template-columns: 1fr; }
   .arch--guitar { width: min(100%, 360px); }
   .place { grid-template-columns: auto minmax(0, 1fr); }
@@ -1740,6 +1727,7 @@ html:not(.js) .theme-switch { visibility: hidden; }
   }
   .arcade::-webkit-scrollbar { display: none; }
   .arcade figure { scroll-snap-align: center; }
+  .arcade--wide { grid-auto-columns: 86%; }
   .place { grid-template-columns: 1fr; text-align: left; }
   .place-icon { display: none; }
   .place-meta { grid-column: auto; }
@@ -1756,8 +1744,6 @@ html:not(.js) .theme-switch { visibility: hidden; }
   .pub-index { padding-top: 0; }
   .pub-links { justify-self: start; margin-top: 8px; }
   .scholar-cta { flex-direction: column; align-items: flex-start; }
-  .facts { grid-template-columns: 1fr; }
-  .facts > div:nth-child(2) { border-top-color: var(--line); }
 
   .sides { grid-template-columns: 1fr; gap: 12px; }
   .side { gap: 16px; padding: 16px 18px; }
