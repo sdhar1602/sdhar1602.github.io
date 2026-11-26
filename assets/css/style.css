@@ -32,6 +32,7 @@
   --accent-soft: rgba(140, 21, 21, .07);
   --ok: #276C44;
   --warn: #8A5A00;
+  --pen: #B42318;
   --header-bg: rgba(245, 241, 232, .8);
   --shadow-sm: 0 1px 2px rgba(40, 30, 20, .06);
   --shadow: 0 1px 2px rgba(40, 30, 20, .05), 0 12px 32px -14px rgba(40, 30, 20, .22);
@@ -84,6 +85,7 @@
   --accent-soft: rgba(239, 124, 112, .1);
   --ok: #7FD1A0;
   --warn: #E9B95C;
+  --pen: #F2695C;
   --header-bg: rgba(18, 17, 15, .74);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
   --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 36px -14px rgba(0, 0, 0, .75);
@@ -118,6 +120,7 @@
     --accent-soft: rgba(239, 124, 112, .1);
     --ok: #7FD1A0;
     --warn: #E9B95C;
+    --pen: #F2695C;
     --header-bg: rgba(18, 17, 15, .74);
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5);
     --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 14px 36px -14px rgba(0, 0, 0, .75);
@@ -545,7 +548,8 @@ html:not(.js) .theme-switch { visibility: hidden; }
 .hero-media::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0 0 auto;
+  aspect-ratio: 4 / 5; /* the portrait only, not the caption below it */
   z-index: -1;
   transform: translate(20px, -20px);
   border: 1px solid var(--line-strong);
@@ -565,6 +569,79 @@ html:not(.js) .theme-switch { visibility: hidden; }
   line-height: 1.25;
   color: var(--ink-2);
 }
+
+/* ------------------------------------------ Hero field (loss landscape) -- */
+/* A topographic map of a non-convex objective sits behind the hero; clicks
+   drop a start point for a Newton vs SGD race (assets/js/field.js). */
+.hero-wrap { position: relative; isolation: isolate; cursor: crosshair; }
+.hero-wrap :is(p, h1, .connect, .portrait, .field-note) { cursor: auto; }
+.field {
+  position: absolute;
+  inset: calc(var(--header-h) * -1) 0 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 220px), transparent);
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 220px), transparent);
+}
+.field canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+.field-note {
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  line-height: 1.55;
+  letter-spacing: .02em;
+  color: var(--muted);
+}
+.field-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-bottom: 4px;
+}
+.field-title {
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.field-cap { margin: 0 0 10px; }
+.field-legend { display: grid; gap: 3px; margin: 0; padding: 0; list-style: none; }
+.field-legend li { display: grid; grid-template-columns: 24px 6ch minmax(0, 1fr); align-items: center; gap: 10px; }
+.fl-key { width: 24px; height: 10px; }
+.fl-key--newton { color: var(--accent); fill: currentColor; }
+.fl-key--sgd { color: var(--ink-2); }
+.fl-name { color: var(--ink); font-weight: 500; }
+.fl-val { font-variant-numeric: tabular-nums; color: var(--ink-2); }
+.field-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 1.55em;
+  margin: 8px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+.field-status svg { width: 13px; height: 13px; flex: none; }
+.field-status.is-warn { color: var(--warn); }
+.field-status.is-ok { color: var(--ok); }
+.field-run {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .3em;
+  cursor: pointer;
+}
+.field-run:hover { text-decoration-thickness: 2px; }
+html:not(.js) .field, html:not(.js) .field-note { display: none; }
 
 /* --------------------------------------------------------------- Section -- */
 .section { padding-block: clamp(56px, 9vw, 120px); }
@@ -889,6 +966,140 @@ html:not(.js) .theme-switch { visibility: hidden; }
   background: var(--bg-soft);
 }
 .scholar-cta p { margin: 0; font-family: var(--font-display); font-size: clamp(1.4rem, 1.1rem + 1vw, 1.9rem); line-height: 1.15; }
+
+/* ------------------------------------------------------ Reviewer 2 mode -- */
+/* A switch on the research page: red-pen margin notes on each paper, each
+   answered by an author response. Notes stay display:none until it is on. */
+.page-head { position: relative; }
+.r2-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 30px; }
+.r2-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 7px 7px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  line-height: 1;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color .3s, color .3s;
+}
+.r2-switch:hover { border-color: var(--muted); color: var(--ink); }
+.r2-pen { width: 15px; height: 15px; flex: none; color: var(--pen); }
+.r2-track {
+  position: relative;
+  width: 36px;
+  height: 22px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  transition: background-color .3s, box-shadow .3s;
+}
+.r2-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .18), 0 0 0 1px var(--line-strong);
+  transition: transform .45s var(--ease), box-shadow .3s;
+}
+.r2-switch[aria-checked="true"] { border-color: color-mix(in srgb, var(--pen) 50%, transparent); color: var(--pen); }
+.r2-switch[aria-checked="true"] .r2-track { background: var(--pen); box-shadow: none; }
+.r2-switch[aria-checked="true"] .r2-thumb { transform: translateX(14px); box-shadow: 0 1px 2px rgba(0, 0, 0, .25); }
+.r2-hint { margin: 0; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .03em; color: var(--muted); }
+html:not(.js) .r2-bar { display: none; }
+
+.r2 { display: none; grid-column: 2 / -1; margin-top: 14px; }
+.r2-on .r2 { display: block; }
+.r2-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--pen);
+}
+.r2-head svg { width: 14px; height: 14px; flex: none; }
+.r2-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px clamp(20px, 3vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.r2-note { padding-top: 14px; border-top: 1.5px dashed color-mix(in srgb, var(--pen) 50%, transparent); }
+.r2-q {
+  margin: 0 0 10px;
+  font-family: "Caveat", "Bradley Hand", "Segoe Print", var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--pen);
+  transform: rotate(-1.2deg);
+  transform-origin: 0 0;
+}
+.r2-note:nth-child(2) .r2-q { transform: rotate(.7deg); }
+.r2-note:nth-child(3) .r2-q { transform: rotate(-.4deg); }
+.r2-a { margin: 0; font-size: .86rem; line-height: 1.55; color: var(--ink-2); }
+.r2-a b { font-weight: 600; color: var(--ink); }
+.r2-a sup { font-size: .7em; line-height: 0; }
+
+/* red-pen marks: a wavy underline in titles, a loop around each paper number */
+.r2-mark {
+  text-decoration: underline wavy transparent;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: .2em;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-color .5s var(--ease) .15s;
+}
+.r2-on .r2-mark { text-decoration-color: var(--pen); }
+.pub-index { position: relative; }
+.pub-index::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 1px;
+  width: 46px;
+  height: 34px;
+  background: var(--pen);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 44'%3E%3Cpath d='M33 6C18 4 5 11 5 22s13 18 27 17 23-8 23-18S44 5 30 7c-6 1-11 3-14 6' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 44'%3E%3Cpath d='M33 6C18 4 5 11 5 22s13 18 27 17 23-8 23-18S44 5 30 7c-6 1-11 3-14 6' fill='none' stroke='%23000' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  opacity: 0;
+  transform: rotate(-6deg) scale(.85);
+  transition: opacity .3s, transform .5s var(--ease);
+  pointer-events: none;
+}
+.r2-on .pub-index::after { opacity: 1; transform: rotate(-6deg) scale(1); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .r2-on .r2-note { animation: r2-in .5s var(--ease) both; animation-delay: calc(var(--i, 0) * 110ms); }
+  .r2-on .r2-q { animation: r2-write 1s var(--ease) both; animation-delay: calc(var(--i, 0) * 110ms + 120ms); }
+}
+@keyframes r2-in { from { opacity: 0; transform: translateY(8px); } }
+@keyframes r2-write { from { clip-path: inset(-12% 100% -12% 0); } to { clip-path: inset(-12% 0 -12% 0); } }
+
+@media (min-width: 1024px) {
+  .r2-bar { position: absolute; right: var(--gutter); bottom: clamp(28px, 4vw, 56px); flex-direction: column; align-items: flex-end; gap: 8px; margin: 0; }
+}
+@media (max-width: 759px) {
+  .r2 { grid-column: auto; }
+  .r2-notes { grid-template-columns: 1fr; gap: 18px; }
+  .pub-index::after { top: -9px; }
+}
 
 /* ------------------------------------------- Featured paper: figure -- */
 .paperfig {
@@ -1711,6 +1922,7 @@ html:not(.js) .theme-switch { visibility: hidden; }
   .hero { grid-template-columns: 1fr; gap: 44px; padding-top: 28px; }
   .hero-media { position: relative; top: 0; width: min(74vw, 320px); }
   .hero-media::before { transform: translate(14px, -14px); }
+  .field-note { position: relative; left: 50%; width: min(calc(100vw - var(--gutter) * 2), 520px); transform: translateX(-50%); }
   .connect { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .chip { width: 100%; justify-content: center; padding: 12px 10px; font-size: .88rem; }
   .chip .long { display: none; }
@@ -1769,7 +1981,7 @@ html:not(.js) .theme-switch { visibility: hidden; }
 
 /* ----------------------------------------------------------------- Print -- */
 @media print {
-  .site-header, .site-nav, .theme-switch, .footer-cta, .marquee, .video-play { display: none !important; }
+  .site-header, .site-nav, .theme-switch, .footer-cta, .marquee, .video-play, .field, .field-note, .r2-bar { display: none !important; }
   body::before { display: none; }
   .js .reveal, .js .reveal-arch { opacity: 1 !important; transform: none !important; clip-path: none !important; }
 }

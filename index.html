@@ -54,6 +54,7 @@
   </script>
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/paperfig.js" defer></script>
+  <script src="assets/js/field.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -83,11 +84,38 @@
 
   <main id="main">
     <!-- Hero ---------------------------------------------------------------->
+    <div class="hero-wrap" data-field>
+    <div class="field" aria-hidden="true">
+      <canvas class="field-base"></canvas>
+      <canvas class="field-paths"></canvas>
+    </div>
+
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-media reveal">
         <figure class="arch portrait reveal-arch">
           <img src="assets/img/portrait.webp" width="960" height="1200" alt="Portrait of Soumyadeep Dhar" fetchpriority="high" decoding="async">
         </figure>
+
+        <div class="field-note" data-field-note>
+          <div class="field-head">
+            <b class="field-title">Fig. 0 · Loss landscape</b>
+            <button class="field-run" type="button" data-field-run>Drop one for me</button>
+          </div>
+          <p class="field-cap">The background is a non-convex objective. Click or tap anywhere up here to drop a start point and race Newton against SGD.</p>
+          <ul class="field-legend">
+            <li title="Newton's method with an eigenvalue-modified Hessian and Armijo backtracking line search">
+              <svg class="fl-key fl-key--newton" viewBox="0 0 24 10" aria-hidden="true"><path d="M2 5h20" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="2.5" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="21.5" cy="5" r="2.6"/></svg>
+              <span class="fl-name">Newton</span>
+              <span class="fl-val" data-out="newton" data-idle="modified Hessian, line search">modified Hessian, line search</span>
+            </li>
+            <li title="Gradient descent with annealed Gaussian gradient noise">
+              <svg class="fl-key fl-key--sgd" viewBox="0 0 24 10" aria-hidden="true"><path d="M1.5 6l2-3 2 4 2-3.5 2 2.5 2-3 2 3.5 2-2 2 1.5 2-2 2 1.2 2-.6" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round"/></svg>
+              <span class="fl-name">SGD</span>
+              <span class="fl-val" data-out="sgd" data-idle="noisy gradient, annealed">noisy gradient, annealed</span>
+            </li>
+          </ul>
+          <p class="field-status" data-out="status" role="status">SolverStatus: idle</p>
+        </div>
       </div>
 
       <div class="hero-text">
@@ -129,6 +157,7 @@
         </ul>
       </div>
     </section>
+    </div>
 
     <!-- Featured paper: interactive figure (data from the Applied Energy paper) ------>
     <section id="featured" class="section section--tight-top container" aria-labelledby="pf-title">

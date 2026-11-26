@@ -22,7 +22,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500..700&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="assets/img/favicon-192.png" sizes="192x192" type="image/png">
@@ -66,6 +66,14 @@
       <p class="eyebrow eyebrow--accent reveal">02 · Research</p>
       <h1 id="page-title" class="display-2 reveal" style="--d:.06s">Research<span class="dot">.</span></h1>
       <p class="lead reveal" style="--d:.12s">I study energy systems, from electricity markets and demand forecasting to sustainability, alongside interpretable AI with an emphasis on distillation. More broadly, I build data-driven models to understand complex systems and inform decision-making.</p>
+      <div class="r2-bar reveal" style="--d:.18s">
+        <button class="r2-switch" type="button" role="switch" aria-checked="false" data-r2-toggle>
+          <svg class="r2-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.2 4.8l4 4L8.6 19.4l-4.8.8.8-4.8z"/><path d="M13.4 6.6l4 4"/></svg>
+          <span>Reviewer 2 mode</span>
+          <span class="r2-track" aria-hidden="true"><span class="r2-thumb"></span></span>
+        </button>
+        <p class="r2-hint">Red pen on the papers below, with my responses</p>
+      </div>
     </section>
 
     <!-- Themes -------------------------------------------------------------->
@@ -135,7 +143,7 @@
         <article class="pub">
           <span class="pub-index">J1</span>
           <div>
-            <h3 class="pub-title"><a href="https://doi.org/10.1016/j.apenergy.2026.128981" target="_blank" rel="noopener noreferrer">A Methodology for Long-Term Hourly Electricity Demand Forecasting Driven by GDP and Invariant Load Profiles</a></h3>
+            <h3 class="pub-title"><a href="https://doi.org/10.1016/j.apenergy.2026.128981" target="_blank" rel="noopener noreferrer">A Methodology for Long-Term Hourly Electricity Demand Forecasting Driven by GDP and <span class="r2-mark">Invariant</span> Load Profiles</a></h3>
             <p class="pub-authors"><span class="me">S. Dhar</span>, A. Parmar, H. Qiu, J. Senga, S. Viswanathan</p>
             <p class="pub-venue"><span class="tag tag--published">Published</span><span class="venue">Applied Energy</span><span>2026</span></p>
             <ul class="metrics" aria-label="Journal metrics">
@@ -149,6 +157,23 @@
               <svg class="go-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
             </a>
           </div>
+          <aside class="r2" aria-label="Reviewer 2 comments, with author responses">
+            <p class="r2-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.2 4.8l4 4L8.6 19.4l-4.8.8.8-4.8z"/><path d="M13.4 6.6l4 4"/></svg>Reviewer 2</p>
+            <ol class="r2-notes">
+              <li class="r2-note" style="--i:0">
+                <p class="r2-q">GDP and demand move together. Reverse causality? Where is your identification strategy?</p>
+                <p class="r2-a"><b>Response.</b> Not needed for what is claimed. It is a forecasting paper: GDP enters as a predictor, and the paper treats the GDP and load correlation as context, not causation. The test is forecast error: worst hourly MAPE of 6.87% across 2017–2022, COVID years included.</p>
+              </li>
+              <li class="r2-note" style="--i:1">
+                <p class="r2-q">“Invariant”? Strong word.</p>
+                <p class="r2-a"><b>Response.</b> Tested, not assumed: t-tests on Singapore’s 2004–2022 hourly profiles find relative load statistically invariant, with an overall deviation of 4.24% across seasonality indices.</p>
+              </li>
+              <li class="r2-note" style="--i:2">
+                <p class="r2-q">One island grid. External validity?</p>
+                <p class="r2-a"><b>Response.</b> Six European grids. MAPE stays under 8% where GDP still drives load (Belgium, Bulgaria, Croatia, Spain) and degrades where demand has decoupled from GDP (Germany, UK). The paper reports both.</p>
+              </li>
+            </ol>
+          </aside>
         </article>
       </div>
 
@@ -160,7 +185,7 @@
         <article class="pub">
           <span class="pub-index">C1</span>
           <div>
-            <h3 class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3795095.3805148" target="_blank" rel="noopener noreferrer">Teaching the Teacher: The Role of Teacher-Student Smoothness Alignment in Genetic Programming-based Symbolic Distillation</a></h3>
+            <h3 class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3795095.3805148" target="_blank" rel="noopener noreferrer">Teaching the Teacher: The Role of Teacher-Student <span class="r2-mark">Smoothness Alignment</span> in Genetic Programming-based Symbolic Distillation</a></h3>
             <p class="pub-authors"><span class="me">S. Dhar</span>, K. S. Fong, M. Motani</p>
             <p class="pub-venue"><span class="tag tag--published">Published</span><span class="venue">GECCO 2026</span><span>Genetic and Evolutionary Computation Conference</span></p>
             <ul class="metrics" aria-label="Conference ranking">
@@ -172,6 +197,23 @@
               <svg class="go-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
             </a>
           </div>
+          <aside class="r2" aria-label="Reviewer 2 comments, with author responses">
+            <p class="r2-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.2 4.8l4 4L8.6 19.4l-4.8.8.8-4.8z"/><path d="M13.4 6.6l4 4"/></svg>Reviewer 2</p>
+            <ol class="r2-notes">
+              <li class="r2-note" style="--i:0">
+                <p class="r2-q">So you made the teacher worse to make the student look better?</p>
+                <p class="r2-a"><b>Response.</b> Guilty, by design. A smoother teacher gives up some raw accuracy but is easier to imitate: with a Jacobian penalty, the distilled student beats the standard pipeline on all 20 datasets.</p>
+              </li>
+              <li class="r2-note" style="--i:1">
+                <p class="r2-q">20 datasets. Cherry-picked? One lucky seed?</p>
+                <p class="r2-a"><b>Response.</b> 50 independent trials per dataset and a Wilcoxon signed-rank test: a mean R² gain of +0.053 over the standard pipeline, p = 4.8 × 10<sup>−7</sup>.</p>
+              </li>
+              <li class="r2-note" style="--i:2">
+                <p class="r2-q">Maybe gplearn is just a weak student.</p>
+                <p class="r2-a"><b>Response.</b> Same story with PySR, a stronger symbolic regression engine: on California Housing, smoother teachers let it recover more accurate formulas (Sec. 5.4).</p>
+              </li>
+            </ol>
+          </aside>
         </article>
       </div>
 
@@ -183,7 +225,7 @@
         <article class="pub">
           <span class="pub-index">W1</span>
           <div>
-            <h3 class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5392021" target="_blank" rel="noopener noreferrer">The Collaboration Paradox: Why Generative AI Requires Both Strategic Intelligence and Operational Stability in Supply Chain Management</a></h3>
+            <h3 class="pub-title"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5392021" target="_blank" rel="noopener noreferrer">The <span class="r2-mark">Collaboration Paradox</span>: Why Generative AI Requires Both Strategic Intelligence and Operational Stability in Supply Chain Management</a></h3>
             <p class="pub-authors"><span class="me">S. Dhar</span></p>
             <p class="pub-venue"><span class="tag tag--working">Working paper</span><span class="venue">SSRN</span></p>
           </div>
@@ -192,6 +234,23 @@
               <svg class="go-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
             </a>
           </div>
+          <aside class="r2" aria-label="Reviewer 2 comments, with author responses">
+            <p class="r2-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.2 4.8l4 4L8.6 19.4l-4.8.8.8-4.8z"/><path d="M13.4 6.6l4 4"/></svg>Reviewer 2</p>
+            <ol class="r2-notes">
+              <li class="r2-note" style="--i:0">
+                <p class="r2-q">Your collaborative AI agents lose to a non-AI baseline? Reject.</p>
+                <p class="r2-a"><b>Response.</b> That is the finding. Agents built on Vendor-Managed Inventory principles hoard inventory and starve the rest of the chain: the collaboration paradox.</p>
+              </li>
+              <li class="r2-note" style="--i:1">
+                <p class="r2-q">Where is the identification strategy? What is your instrument?</p>
+                <p class="r2-a"><b>Response.</b> Nothing to instrument: it is a controlled simulation, so demand, shocks and agent designs are all set by construction.</p>
+              </li>
+              <li class="r2-note" style="--i:2">
+                <p class="r2-q">So which matters, strategy or execution?</p>
+                <p class="r2-a"><b>Response.</b> Both. Resilience needs AI-driven policy-setting on top of a collaborative execution layer that proactively pushes stock downstream.</p>
+              </li>
+            </ol>
+          </aside>
         </article>
       </div>
 
@@ -207,6 +266,15 @@
             <p class="pub-authors">Wiley</p>
             <p class="pub-venue"><span class="tag tag--service">Reviewer</span><span>Focus areas: electricity demand forecasting, renewable energy</span></p>
           </div>
+          <aside class="r2" aria-label="Reviewer 2 comments, with author responses">
+            <p class="r2-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.2 4.8l4 4L8.6 19.4l-4.8.8.8-4.8z"/><path d="M13.4 6.6l4 4"/></svg>Reviewer 2</p>
+            <ol class="r2-notes">
+              <li class="r2-note" style="--i:0">
+                <p class="r2-q">Wait. You review papers too?</p>
+                <p class="r2-a"><b>Response.</b> For IET Renewable Power Generation. I try to be Reviewer 1.</p>
+              </li>
+            </ol>
+          </aside>
         </article>
       </div>
 

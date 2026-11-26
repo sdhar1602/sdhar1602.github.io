@@ -162,6 +162,15 @@
     video.addEventListener('ended', () => card.classList.remove('is-playing'));
   });
 
+  /* -------------------------------------------------- Reviewer 2 mode -- */
+  document.querySelectorAll('[data-r2-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const on = btn.getAttribute('aria-checked') !== 'true';
+      btn.setAttribute('aria-checked', String(on));
+      document.body.classList.toggle('r2-on', on);
+    });
+  });
+
   /* ------------------------------------------------------------- Year -- */
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = String(new Date().getFullYear()); });
 })();
